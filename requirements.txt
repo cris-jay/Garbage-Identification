@@ -1,0 +1,7 @@
+flask
+flask-mysqldb
+flask-jwt-extended
+requests
+chromadb
+reportlab
+flask-cors

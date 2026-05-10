@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify
 from flask_mysqldb import MySQL
+from flask_cors import CORS
 from flask_jwt_extended import (
     JWTManager, create_access_token,
     jwt_required, get_jwt_identity
@@ -31,6 +32,7 @@ client = chromadb.PersistentClient(path="./chroma_db")
 garbage_collection = client.get_collection("garbage_collection")
 
 app = Flask(__name__)
+CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 # 百度AI接口配置
 BAIDU_API_KEY = "WgbVjh6bA5AF74qV4DChu9qd"
